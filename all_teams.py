@@ -23,6 +23,9 @@ from selenium.common.exceptions import TimeoutException
 
 # date will be doc name
 today = date.today()
+newpath = '/home/wsb/CSV/MLB/'+str(today)+'/'
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
 ########## ad extensions aka adblock ##########
 options = webdriver.ChromeOptions()
 options.add_extension('/home/wsb/Downloads/uBlock-Origin.crx')
@@ -100,11 +103,11 @@ for x in team_list:
         #print(csv_shit)
 
         ########################## WRITE TO TEXT THEN CONVERT TO CSV
-        with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.txt', 'w') as f:
+        with open(newpath+str(x)+str(today)+'.txt', 'w') as f:
             f.write(csv_shit)
 
 
-        p = Path('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.txt')
+        p = Path(newpath+str(x)+str(today)+'.txt')
         p.rename(p.with_suffix('.csv'))
 
 
@@ -112,25 +115,25 @@ for x in team_list:
         lines = list()
         rownumbers_to_remove= [1,2,3,4]
 
-        with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'r') as read_file:
+        with open(newpath+str(x)+str(today)+'.csv', 'r') as read_file:
             reader = csv.reader(read_file)
             for row_number, row in enumerate(reader, start=1):
                 if(row_number not in rownumbers_to_remove):
                     lines.append(row)
 
-        with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'w') as write_file:
+        with open(newpath+str(x)+str(today)+'.csv', 'w') as write_file:
             writer = csv.writer(write_file)
             writer.writerows(lines)
         for i in range(gp,170):
             lines = list()
             rownumbers_to_remove= [gp]
-            with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'r') as read_file:
+            with open(newpath+str(x)+str(today)+'.csv', 'r') as read_file:
                 reader = csv.reader(read_file)
                 for row_number, row in enumerate(reader, start=1):
                     if(row_number not in rownumbers_to_remove):
                         lines.append(row)
 
-            with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'w') as write_file:
+            with open(newpath+str(x)+str(today)+'.csv', 'w') as write_file:
                 writer = csv.writer(write_file)
                 writer.writerows(lines)
         
@@ -184,11 +187,11 @@ for x in team_list:
                 #print(csv_shit)
 
                 ########################## WRITE TO TEXT THEN CONVERT TO CSV
-                with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.txt', 'w') as f:
+                with open(newpath+str(x)+str(today)+'.txt', 'w') as f:
                     f.write(csv_shit)
 
 
-                p = Path('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.txt')
+                p = Path(newpath+str(x)+str(today)+'.txt')
                 p.rename(p.with_suffix('.csv'))
 
 
@@ -196,25 +199,25 @@ for x in team_list:
                 lines = list()
                 rownumbers_to_remove= [1,2,3,4]
 
-                with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'r') as read_file:
+                with open(newpath+str(x)+str(today)+'.csv', 'r') as read_file:
                     reader = csv.reader(read_file)
                     for row_number, row in enumerate(reader, start=1):
                         if(row_number not in rownumbers_to_remove):
                             lines.append(row)
 
-                with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'w') as write_file:
+                with open(newpath+str(x)+str(today)+'.csv', 'w') as write_file:
                     writer = csv.writer(write_file)
                     writer.writerows(lines)
                 for i in range(gp,170):
                     lines = list()
                     rownumbers_to_remove= [gp]
-                    with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'r') as read_file:
+                    with open(newpath+str(x)+str(today)+'.csv', 'r') as read_file:
                         reader = csv.reader(read_file)
                         for row_number, row in enumerate(reader, start=1):
                             if(row_number not in rownumbers_to_remove):
                                 lines.append(row)
 
-                    with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'w') as write_file:
+                    with open(newpath+str(x)+str(today)+'.csv', 'w') as write_file:
                         writer = csv.writer(write_file)
                         writer.writerows(lines)
 
@@ -258,11 +261,11 @@ for x in team_list:
             #print(csv_shit)
 
             ########################## WRITE TO TEXT THEN CONVERT TO CSV
-            with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.txt', 'w') as f:
+            with open(newpath+str(x)+str(today)+'.txt', 'w') as f:
                 f.write(csv_shit)
 
 
-            p = Path('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.txt')
+            p = Path(newpath+str(x)+str(today)+'.txt')
             p.rename(p.with_suffix('.csv'))
 
 
@@ -270,25 +273,25 @@ for x in team_list:
             lines = list()
             rownumbers_to_remove= [1,2,3,4]
 
-            with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'r') as read_file:
+            with open(newpath+str(x)+str(today)+'.csv', 'r') as read_file:
                 reader = csv.reader(read_file)
                 for row_number, row in enumerate(reader, start=1):
                     if(row_number not in rownumbers_to_remove):
                         lines.append(row)
 
-            with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'w') as write_file:
+            with open(newpath+str(x)+str(today)+'.csv', 'w') as write_file:
                 writer = csv.writer(write_file)
                 writer.writerows(lines)
             for i in range(gp,170):
                 lines = list()
                 rownumbers_to_remove= [gp]
-                with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'r') as read_file:
+                with open(newpath+str(x)+str(today)+'.csv', 'r') as read_file:
                     reader = csv.reader(read_file)
                     for row_number, row in enumerate(reader, start=1):
                         if(row_number not in rownumbers_to_remove):
                             lines.append(row)
 
-                with open('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv', 'w') as write_file:
+                with open(newpath+str(x)+str(today)+'.csv', 'w') as write_file:
                     writer = csv.writer(write_file)
                     writer.writerows(lines)
 
@@ -296,7 +299,7 @@ for x in team_list:
             print('Saved to /home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv')
            
 for x in team_list:
-    p = Path('/home/wsb/CSV/MLB/'+str(x)+str(today)+'.csv')           
+    p = Path(newpath+str(x)+str(today)+'.csv')           
     x = open(p)
     s = x.read().replace('Gm#', 'Gm' ) 
     x.close()
